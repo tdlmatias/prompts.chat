@@ -110,9 +110,9 @@ export default function SelfHostingPage() {
               Prerequisites
             </h3>
             <ul className="list-disc list-inside text-muted-foreground space-y-1">
-              <li>Node.js 18+</li>
+              <li>Node.js 24.x</li>
               <li>PostgreSQL database</li>
-              <li>npm or yarn</li>
+              <li>npm</li>
             </ul>
           </div>
 
