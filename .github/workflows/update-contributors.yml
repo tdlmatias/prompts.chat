@@ -46,7 +46,13 @@ jobs:
           import os
           from huggingface_hub import HfApi
           
-          api = HfApi(token=os.environ["HF_API_TOKEN"])
+          # Validate token is set and not empty
+          hf_token = os.environ.get("HF_API_TOKEN", "").strip()
+          if not hf_token:
+              print("Warning: HF_API_TOKEN not set. Skipping Hugging Face sync.")
+              exit(0)
+          
+          api = HfApi(token=hf_token)
           api.upload_file(
               path_or_fileobj="prompts.csv",
               path_in_repo="prompts.csv",
